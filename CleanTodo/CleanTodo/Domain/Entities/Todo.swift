@@ -13,7 +13,7 @@ import Foundation
  Todo.swift 파일은 앱의 핵심 데이터 모델인 Todo 객체를 정의합니다.
  이 모델은 앱 전반에 걸쳐 사용되며, 비즈니스 로직의 기본 단위입니다.
  */
-struct Todo: Identifiable {
+struct Todo: Identifiable, Codable{
     let id: UUID
     var title: String
     var isCompleted: Bool

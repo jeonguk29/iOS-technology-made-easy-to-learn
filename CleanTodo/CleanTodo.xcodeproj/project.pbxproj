@@ -17,6 +17,7 @@
 		2F14FC6C2D6DEF24009C8110 /* TodoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F14FC592D6DEF24009C8110 /* TodoListViewModel.swift */; };
 		2F14FC6D2D6DEF24009C8110 /* TodoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F14FC5B2D6DEF24009C8110 /* TodoListView.swift */; };
 		2F14FC6E2D6DEF24009C8110 /* CleanTodoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F14FC632D6DEF24009C8110 /* CleanTodoApp.swift */; };
+		2F14FC702D6DF67F009C8110 /* NetworkTodoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F14FC6F2D6DF67F009C8110 /* NetworkTodoRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		2F14FC5F2D6DEF24009C8110 /* CleanTodo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CleanTodo.entitlements; sourceTree = "<group>"; };
 		2F14FC602D6DEF24009C8110 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2F14FC632D6DEF24009C8110 /* CleanTodoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleanTodoApp.swift; sourceTree = "<group>"; };
+		2F14FC6F2D6DF67F009C8110 /* NetworkTodoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTodoRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				2F14FC4F2D6DEF24009C8110 /* InMemoryTodoRepository.swift */,
+				2F14FC6F2D6DF67F009C8110 /* NetworkTodoRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				2F14FC692D6DEF24009C8110 /* Todo.swift in Sources */,
 				2F14FC6A2D6DEF24009C8110 /* TodoRepository.swift in Sources */,
 				2F14FC6B2D6DEF24009C8110 /* TodoUseCase.swift in Sources */,
+				2F14FC702D6DF67F009C8110 /* NetworkTodoRepository.swift in Sources */,
 				2F14FC6C2D6DEF24009C8110 /* TodoListViewModel.swift in Sources */,
 				2F14FC6D2D6DEF24009C8110 /* TodoListView.swift in Sources */,
 				2F14FC6E2D6DEF24009C8110 /* CleanTodoApp.swift in Sources */,

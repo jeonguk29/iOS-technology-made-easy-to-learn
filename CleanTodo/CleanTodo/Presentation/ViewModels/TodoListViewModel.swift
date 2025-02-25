@@ -23,9 +23,9 @@ class TodoListViewModel: ObservableObject {
     @Published var todos: [Todo] = []
     
     private let todoUseCase: TodoUseCase
-    private var repository: InMemoryTodoRepository
+    private var repository: NetworkTodoRepository
     
-    init(repository: InMemoryTodoRepository) {
+    init(repository: NetworkTodoRepository) {
         self.repository = repository
         self.todoUseCase = TodoUseCase(repository: repository)
         self.todos = repository.fetchTodos()
