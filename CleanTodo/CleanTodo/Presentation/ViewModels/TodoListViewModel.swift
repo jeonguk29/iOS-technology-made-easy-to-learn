@@ -27,19 +27,19 @@ class TodoListViewModel: ObservableObject {
     
     init(todoUseCase: TodoUseCase) {
         self.todoUseCase = todoUseCase
-        self.todos = todoUseCase.getTodos() // 초기 데이터 로드
     }
     
-    func addTodo(title: String) {
-        todoUseCase.addTodo(title: title)
-        self.todos = todoUseCase.getTodos() // 상태 업데이트
-    }
-    
-    func deleteTodo(at offsets: IndexSet) {
-        offsets.forEach { index in
-            let todo = todos[index]
-            todoUseCase.deleteTodo(todo) // useCase를 통해 삭제
+    func fetchTodos() {
+        Task {
+            do {
+                let fetchedTodos = try await todoUseCase.getTodos()
+                DispatchQueue.main.async {
+                    self.todos = fetchedTodos
+                    print("ViewModel\(self.todos)")
+                }
+            } catch {
+                print("❌ 오류 발생: \(error)")
+            }
         }
-        self.todos = todoUseCase.getTodos() // 상태 업데이트
     }
 }
