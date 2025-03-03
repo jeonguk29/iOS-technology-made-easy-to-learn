@@ -30,4 +30,13 @@ struct TodoUseCase {
     }
     
     // updateTodo, deleteTodo 등 추가적인 메서드 구현 가능
+    func deleteTodo(_ todo: Todo) {
+        repository.deleteTodo(todo)
+    }
+    
+    func toggleTodoCompletion(todo: Todo) {
+        var updatedTodo = todo
+        updatedTodo.isCompleted.toggle()
+        repository.updateTodo(updatedTodo)
+    }
 }

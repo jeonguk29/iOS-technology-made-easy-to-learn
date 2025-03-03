@@ -16,16 +16,20 @@ import SwiftUI
 @main
 struct CleanTodoApp: App {
     var body: some Scene {
-        // 네트워크 Repository 인스턴스를 생성해 주입합니다.
+        // 네트워크 Repository 인스턴스를 생성
         let repository = NetworkTodoRepository()
-        let viewModel = TodoListViewModel(repository: repository)
+        
+        // UseCase를 생성하고 Repository 주입
+        let todoUseCase = TodoUseCase(repository: repository)
+        
+        // ViewModel을 생성하고 UseCase 주입
+        let viewModel = TodoListViewModel(todoUseCase: todoUseCase)
         
         WindowGroup {
             TodoListView(viewModel: viewModel)
         }
     }
 }
-
 
 /*
 @main
