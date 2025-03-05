@@ -9,7 +9,7 @@ import SwiftUI
 
 /*
  단계 4: 앱 구성 및 의존성 주입
- 의존성 주입 구현: 앱 시작 시 InMemoryTodoRepository 인스턴스를 생성합니다.
+ 의존성 주입 구현: 앱 시작 시 NetworkTodoRepository 인스턴스를 생성합니다.
  이를 이용해 TodoListViewModel을 초기화하고, 최종적으로 TodoListView에 주입하여 앱 전체에서 동일한 데이터 소스를 사용하도록 설정합니다.
  */
 
@@ -17,8 +17,8 @@ import SwiftUI
 struct CleanTodoApp: App {
     var body: some Scene {
         // 네트워크 Repository 인스턴스를 생성
-        let repository = InMemoryTodoRepository()
-        
+        let repository = LocalTodoRepository()
+        // LocalTodoRepository
         // UseCase를 생성하고 Repository 주입
         let todoUseCase = TodoUseCase(repository: repository)
         

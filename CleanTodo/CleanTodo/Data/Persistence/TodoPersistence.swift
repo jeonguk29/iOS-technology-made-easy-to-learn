@@ -6,9 +6,30 @@
 //
 
 import Foundation
+import CoreData
 
 /*
  단계 2: Data 계층 구현
  Persistence 추가 데이터 저장소 구현 (옵션):
  CoreData나 Realm 같은 데이터베이스 관련 파일들을 모아두어, 데이터의 저장 및 불러오기 로직을 관리합니다.
  */
+
+class TodoPersistence {
+    static let shared = TodoPersistence()
+    
+    let container: NSPersistentContainer
+    
+    private init() {
+        container = NSPersistentContainer(name: "TodoDatabase") 
+        container.loadPersistentStores { _, error in
+            if let error = error {
+                fatalError("❌ CoreData 로드 실패: \(error)")
+            }
+        }
+    }
+    
+    var context: NSManagedObjectContext {
+        return container.viewContext
+    }
+}
+
