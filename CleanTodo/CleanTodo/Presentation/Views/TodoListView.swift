@@ -13,7 +13,6 @@ import SwiftUI
  뷰에서는 ViewModel의 데이터를 바인딩하여 화면에 표시하고, 사용자 입력(예: Todo 추가, 삭제)을 처리합니다.
  */
 
-
 struct TodoListView: View {
     @StateObject var viewModel: TodoListViewModel
     @State private var newTodoTitle: String = ""
@@ -21,38 +20,36 @@ struct TodoListView: View {
     var body: some View {
         NavigationView {
             VStack {
+                TextField("새로운 할 일을 입력하세요", text: $newTodoTitle)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                
+                Button(action: {
+                    viewModel.addTodo(title: newTodoTitle)
+                    newTodoTitle = "" // 입력창 초기화
+                }) {
+                    Text("할 일 추가")
+                        .padding()
+                        .background(Color.blue)
+                        .foregroundColor(.white)
+                        .cornerRadius(8)
+                }
+                
                 List(viewModel.todos, id: \.id) { todo in
                     HStack {
-                        // ✅ 완료 여부에 따라 체크 아이콘 표시
                         Image(systemName: todo.isDone == true ? "checkmark.circle.fill" : "circle")
                             .foregroundColor(todo.isDone == true ? .green : .gray)
-                        
-                        VStack(alignment: .leading, spacing: 4) {
-                            // ✅ 할 일 제목
-                            Text(todo.title ?? "제목 없음")
-                                .font(.headline)
-                                .foregroundColor(todo.isDone == true ? .gray : .primary) // ✅ 완료된 항목 흐리게 표시
-                            
-                            // ✅ 생성 날짜 표시
-                            if let createdAt = todo.createdAt {
-                                Text(formatDate(createdAt))
-                                    .font(.caption)
-                                    .foregroundColor(.secondary)
-                            }
-                        }
-                        
-                        Spacer() // ✅ 자동 정렬
+                        Text(todo.title ?? "제목 없음")
                     }
-                    .padding(.vertical, 8) // ✅ 간격 조정
                 }
-                .navigationTitle("Todo List") // ✅ 네비게이션 제목
+                .navigationTitle("Todo List")
             }
             .onAppear {
                 viewModel.fetchTodos()
             }
-//            .refreshable { // ✅ Pull to Refresh 추가
-//                await viewModel.fetchTodos()
-//            }
+            //            .refreshable { // ✅ Pull to Refresh 추가
+            //                await viewModel.fetchTodos()
+            //            }
         }
     }
     

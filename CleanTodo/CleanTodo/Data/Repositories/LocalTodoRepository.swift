@@ -17,6 +17,7 @@ import CoreData
  */
 
 class LocalTodoRepository: TodoRepository {
+
     private let context: NSManagedObjectContext
     
     init(context: NSManagedObjectContext = TodoPersistence.shared.context) {
@@ -65,6 +66,11 @@ class LocalTodoRepository: TodoRepository {
         }
     }
     
+    func createTodo(request: TodoAPIRequest) async throws -> Todo {
+        
+        return Todo(id: 1, title: "test", isDone: false, createdAt: "", updatedAt: "")
+    }
+    
     private func saveContext() {
         do {
             try context.save()
@@ -72,6 +78,7 @@ class LocalTodoRepository: TodoRepository {
             print("❌ CoreData 저장 실패: \(error)")
         }
     }
+    
 }
 
 

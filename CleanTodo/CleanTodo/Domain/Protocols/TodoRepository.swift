@@ -14,4 +14,5 @@ import Foundation
  */
 protocol TodoRepository {
     func fetchTodos(page:Int) async throws -> [Todo]
+    func createTodo(request: TodoAPIRequest) async throws -> Todo
 }
