@@ -15,11 +15,27 @@ import Combine
  static let baseURL = "https://phplaravel-574671-2962113.cloudwaysapps.com/api/" + version
  }
  */
-enum ApiError : Error {
+
+
+enum ApiError: Error, Equatable {
     case parsingError
     case noContent
     case decodingError
     case badStatus(code: Int)
+
+    // ✅ `Equatable` 프로토콜 준수하기 위해 `==` 연산자 직접 구현
+    static func == (lhs: ApiError, rhs: ApiError) -> Bool {
+        switch (lhs, rhs) {
+        case (.parsingError, .parsingError),
+             (.noContent, .noContent),
+             (.decodingError, .decodingError):
+            return true
+        case (.badStatus(let code1), .badStatus(let code2)):
+            return code1 == code2 // ✅ 연관값이 있는 경우 비교
+        default:
+            return false
+        }
+    }
 }
 
 class NetworkTodoRepository: TodoRepository {
