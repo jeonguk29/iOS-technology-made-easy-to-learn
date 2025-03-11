@@ -23,6 +23,8 @@
 		2FE5A1892D7AE89900A97AD6 /* NetworkTodoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F14FC6F2D6DF67F009C8110 /* NetworkTodoRepository.swift */; };
 		2FE5A18E2D7AE91C00A97AD6 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F14FC522D6DEF24009C8110 /* Todo.swift */; };
 		2FE5A1912D7AEA6800A97AD6 /* TodoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F14FC542D6DEF24009C8110 /* TodoRepository.swift */; };
+		2FFB56982D7F125900172250 /* TodoUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F14FC562D6DEF24009C8110 /* TodoUseCase.swift */; };
+		2FFB56992D7F126800172250 /* TodoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F14FC592D6DEF24009C8110 /* TodoListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -382,7 +384,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FFB56992D7F126800172250 /* TodoListViewModel.swift in Sources */,
 				2FE5A18E2D7AE91C00A97AD6 /* Todo.swift in Sources */,
+				2FFB56982D7F125900172250 /* TodoUseCase.swift in Sources */,
 				2FE5A1912D7AEA6800A97AD6 /* TodoRepository.swift in Sources */,
 				2FE5A1892D7AE89900A97AD6 /* NetworkTodoRepository.swift in Sources */,
 			);
